@@ -63,7 +63,7 @@ function answerQuestion(answer) {
 function determineCharacter() {
     let possibleCharacters = characters.filter(char => {
         return Object.keys(answers).every(key => 
-            answers[key] === n || char.traits[key] === undefined || char.traits[key] === answers[key]
+            answers[key] === n || char.traits[key] === answers[key]
         );
     });
 
