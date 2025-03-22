@@ -61,3 +61,15 @@ document.getElementById("startBtn").addEventListener("click", function () {
     answers = {};
     askQuestion();
 });
+document.addEventListener("DOMContentLoaded", function () {
+    let startButton = document.getElementById("startBtn");
+    if (startButton) {
+        startButton.addEventListener("click", function () {
+            currentQuestionIndex = 0;
+            answers = {};
+            askQuestion();
+        });
+    } else {
+        console.error("startBtn が見つかりません。");
+    }
+});
