@@ -8,21 +8,16 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 const characters = [
-    { name: "ジョナサン・ジョースター", traits: { 男性: true, スタンド: n, 敵対: false, 帽子: false, 人間: true, 死亡: true, 学生: true, タトゥー: false, ピアス: false } },
-    { name: "ディオ・ブランドー", traits: { 男性: true, スタンド: false, 敵対: true, 帽子: false, 人間: n, 死亡: true, 学生: true, タトゥー: false, ピアス: false } },
-    { name: "ジョセフ・ジョースター", traits: { 男性: true, スタンド: true, 敵対: false, 帽子: n, 人間: true, 死亡: false, 学生: false, タトゥー: false, ピアス: false } },
     { name: "カーズ", traits: { 男性: true, スタンド: false, 敵対: true, 帽子: false, 人間: false, 死亡: true, 学生: false, タトゥー: false, ピアス: true } },
     { name: "空条承太郎", traits: { 男性: true, スタンド: true, 敵対: false, 帽子: true, 人間: true, 死亡: true, 学生: true, タトゥー: false, ピアス: true } },
     { name: "DIO", traits: { 男性: true, スタンド: true, 敵対: true, 帽子: false, 人間: false, 死亡: true, 学生: false, タトゥー: false, ピアス: true } },
     { name: "東方仗助", traits: { 男性: true, スタンド: true, 敵対: false, 帽子: false, 人間: true, 死亡: false, 学生: true, タトゥー: false, ピアス: true } },
     { name: "吉良吉影", traits: { 男性: true, スタンド: true, 敵対: true, 帽子: false, 人間: true, 死亡: true, 学生: false, タトゥー: false, ピアス: false } },
     { name: "ジョルノ・ジョバァーナ", traits: { 男性: true, スタンド: true, 敵対: false, 帽子: false, 人間: true, 死亡: false, 学生: true, タトゥー: false, ピアス: true } },
-    { name: "ディアボロ", traits: { 男性: true, スタンド: true, 敵対: true, 帽子: false, 人間: true, 死亡: n, 学生: false, タトゥー: true, ピアス: false } },
     { name: "空条徐倫", traits: { 男性: false, スタンド: true, 敵対: false, 帽子: false, 人間: true, 死亡: true, 学生: false, タトゥー: true, ピアス: true } },
     { name: "エンリコ・プッチ", traits: { 男性: true, スタンド: true, 敵対: true, 帽子: false, 人間: true, 死亡: true, 学生: false, タトゥー: false, ピアス: false } },
     { name: "ジョニィ・ジョースター", traits: { 男性: true, スタンド: true, 敵対: false, 帽子: true, 人間: true, 死亡: true, 学生: false, タトゥー: false, ピアス: false } },
     { name: "ファニー・ヴァレンタイン", traits: { 男性: true, スタンド: true, 敵対: true, 帽子: false, 人間: true, 死亡: true, 学生: false, タトゥー: false, ピアス: false } },
-    { name: "東方定助", traits: { 男性: true, スタンド: true, 敵対: false, 帽子: true, 人間: true, 死亡: false, 学生: n, タトゥー: false, ピアス: false } },
     { name: "透龍", traits: { 男性: true, スタンド: true, 敵対: true, 帽子: false, 人間: false, 死亡: true, 学生: false, タトゥー: false, ピアス: false } }
 ];
 
@@ -47,7 +42,7 @@ function askQuestion() {
             <p>${questions[currentQuestionIndex].text}</p>
             <button onclick="answerQuestion(true)">はい</button>
             <button onclick="answerQuestion(false)">いいえ</button>
-            <button onclick="answerQuestion(n)">分からない</button>
+            <button onclick="answerQuestion(null)">分からない</button>
         `;
     } else {
         determineCharacter();
