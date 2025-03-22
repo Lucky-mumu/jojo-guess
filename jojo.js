@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 const characters = [
+    { name: "ジョナサン・ジョースター", traits: { 帽子: false, スタンド: false, 喫煙: true, 学生: true } },
     { name: "空条承太郎", traits: { 帽子: true, スタンド: true, 喫煙: true, 学生: true } },
     { name: "ジョセフ・ジョースター", traits: { 帽子: false, スタンド: true, 喫煙: false, 学生: false } },
     { name: "東方仗助", traits: { 帽子: false, スタンド: true, 喫煙: false, 学生: true } }
