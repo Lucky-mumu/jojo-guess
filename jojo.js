@@ -1,8 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("startBtn").addEventListener("click", function () {
-        document.getElementById("output").innerText = "診断スタートだよね！（質問を出す処理を追加予定）";
+        document.getElementById("output").innerText = "診断スタートだあよねええ！（質問を出す処理を追加予定）";
+        currentQuestionIndex = 0;
+        answers = {};
+        askQuestion(); // ← ここを追加！
     });
 });
+
 const characters = [
     { name: "空条承太郎", traits: { 帽子: true, スタンド: true, 喫煙: true, 学生: true } },
     { name: "ジョセフ・ジョースター", traits: { 帽子: false, スタンド: true, 喫煙: false, 学生: false } },
@@ -15,6 +19,7 @@ const questions = [
     { text: "喫煙者ですか？", key: "喫煙" },
     { text: "学生ですか？", key: "学生" }
 ];
+
 let currentQuestionIndex = 0;
 let answers = {};
 
@@ -52,9 +57,3 @@ function determineCharacter() {
         document.getElementById("output").innerHTML = `<p>該当するキャラが見つかりませんでした。</p>`;
     }
 }
-
-document.getElementById("startBtn").addEventListener("click", function () {
-    currentQuestionIndex = 0;
-    answers = {};
-    askQuestion();
-});
