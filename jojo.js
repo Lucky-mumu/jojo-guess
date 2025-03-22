@@ -42,9 +42,18 @@ let currentQuestionIndex = 0;
 let answers = {};
 
 function askQuestion() {
-    if (currentQuestionIndex < questions.length) {
+    if (Object.keys(answers).length < questions.length) {
+        // **最適な質問を選ぶ**
+        let bestQuestion = findBestQuestion();
+        if (!bestQuestion) {
+            determineCharacter();
+            return;
+        }
+
+        currentQuestionIndex = questions.indexOf(bestQuestion);
+
         document.getElementById("output").innerHTML = `
-            <p>${questions[currentQuestionIndex].text}</p>
+            <p>${bestQuestion.text}</p>
             <button onclick="answerQuestion(true)">はい</button>
             <button onclick="answerQuestion(false)">いいえ</button>
             <button onclick="answerQuestion(null)">分からない</button>
@@ -54,6 +63,40 @@ function askQuestion() {
         determineCharacter();
     }
 }
+
+// **最適な質問を探す**
+function findBestQuestion() {
+    let remainingCharacters = characters.filter(char => {
+        return Object.keys(answers).every(key => 
+            answers[key] === null || 
+            char.traits[key] === null || 
+            char.traits[key] === answers[key]
+        );
+    });
+
+    let bestQuestion = null;
+    let bestBalance = Infinity;
+
+    questions.forEach(question => {
+        if (answers.hasOwnProperty(question.key)) return; // すでに答えた質問はスキップ
+
+        let counts = { true: 0, false: 0, null: 0 };
+
+        remainingCharacters.forEach(char => {
+            let value = char.traits[question.key];
+            counts[value] = (counts[value] || 0) + 1;
+        });
+
+        let maxCount = Math.max(counts.true, counts.false, counts.null);
+        if (maxCount < bestBalance) {
+            bestBalance = maxCount;
+            bestQuestion = question;
+        }
+    });
+
+    return bestQuestion;
+}
+
 
 function answerQuestion(answer) {
     answers[questions[currentQuestionIndex].key] = answer;
