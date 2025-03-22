@@ -48,6 +48,7 @@ function askQuestion() {
             <button onclick="answerQuestion(true)">はい</button>
             <button onclick="answerQuestion(false)">いいえ</button>
             <button onclick="answerQuestion(null)">分からない</button>
+            <button onclick="goBack()">戻る</button>
         `;
     } else {
         determineCharacter();
@@ -58,6 +59,14 @@ function answerQuestion(answer) {
     answers[questions[currentQuestionIndex].key] = answer;
     currentQuestionIndex++;
     askQuestion();
+}
+
+function goBack() {
+    if (currentQuestionIndex > 0) {
+        currentQuestionIndex--;
+        delete answers[questions[currentQuestionIndex].key];
+        askQuestion();
+    }
 }
 
 function determineCharacter() {
