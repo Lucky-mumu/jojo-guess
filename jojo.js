@@ -63,12 +63,7 @@ function answerQuestion(answer) {
 function determineCharacter() {
     let possibleCharacters = characters.filter(char => {
         return Object.keys(answers).every(key => 
-            // スルー条件 (nullの場合)
-            if (answers[key] === null) {
-                return true;
-            }
-            // 他の条件
-            return answers[key] === char.traits[key];
+            answers[key] === null || char.traits[key] === undefined || char.traits[key] === answers[key]
         );
     });
 
