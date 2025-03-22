@@ -14,7 +14,7 @@ const characters = [
 ];
 
 const questions = [
-    { text: "帽子をかぶっていますか？", key: "帽子" },
+    { text: "帽子をかぶっているかい？", key: "帽子" },
     { text: "スタンドを持っていますか？", key: "スタンド" },
     { text: "喫煙者ですか？", key: "喫煙" },
     { text: "学生ですか？", key: "学生" }
